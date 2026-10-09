@@ -1,0 +1,362 @@
+/* VRPLAY project website
+   One stylesheet for every page. Edit the values under :root to retheme.
+   The site must stay static and self-contained: no external fonts or scripts. */
+
+:root {
+  --paper: #ffffff;
+  --ink: #1b1540;
+  --muted: #5f5a78;
+  --accent: #6a4cdb;
+  --accent-deep: #4a32b0;
+  --tint: #f3f0fb;
+  --line: #e4e1ef;
+  --faint: #d9d6e6;
+
+  --measure: 64ch;
+  --wide: 72rem;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---- base ---------------------------------------------------------- */
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); max-width: 22ch; }
+h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-top: 0; }
+h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+
+p, ul, ol, table { max-width: var(--measure); }
+p { margin: 0 0 1em; }
+ul, ol { padding-left: 1.25em; margin: 0 0 1em; }
+li { margin-bottom: 0.35em; }
+
+a { color: var(--accent-deep); }
+a:hover { color: var(--accent); }
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.muted { color: var(--muted); }
+
+.vh {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- layout -------------------------------------------------------- */
+
+.wrap {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+main > section {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--line);
+}
+
+main > section:first-child { border-top: 0; }
+
+.lede {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 54ch;
+}
+
+/* ---- header and navigation ---------------------------------------- */
+
+.site-header {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+}
+
+.brand {
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--ink);
+  margin-right: auto;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  max-width: none;
+}
+
+.site-nav li { margin: 0; }
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---- home hero ----------------------------------------------------- */
+
+.hero { padding: 4rem 0 3.5rem; }
+
+.hero .logo {
+  width: min(18rem, 60vw);
+  margin-bottom: 2rem;
+}
+
+.hero h1 { margin-bottom: 1rem; }
+
+/* ---- page title block (VE pages) ---------------------------------- */
+
+.page-title { padding: 3rem 0 2.5rem; }
+
+.page-title .byline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+
+.page-title .cover {
+  margin-top: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--tint);
+}
+
+/* ---- environment list (home) -------------------------------------- */
+
+.environments {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.environments li { margin: 0; }
+
+.environments .thumb {
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--tint);
+  margin-bottom: 1rem;
+}
+
+.environments h3 { margin-bottom: 0.15rem; }
+.environments .owner { color: var(--muted); margin: 0 0 0.75rem; }
+.environments p { margin-bottom: 1rem; }
+
+/* ---- the seven-part PLAY tally ------------------------------------
+   Each list item is one measured component of PLAY.
+   State classes: .met  .part  .none                                     */
+
+.tally {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-width: none;
+}
+
+.tally li {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.7rem 0.25rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  border: 1px solid var(--faint);
+  color: var(--muted);
+}
+
+.tally li::before {
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: 2px solid var(--faint);
+  background: transparent;
+  flex: none;
+}
+
+.tally .met {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: var(--tint);
+}
+.tally .met::before { background: var(--accent); border-color: var(--accent); }
+
+.tally .part { color: var(--ink); border-color: var(--accent); }
+.tally .part::before {
+  border-color: var(--accent);
+  background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
+}
+
+.tally .none { color: var(--muted); }
+
+.tally-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0;
+}
+
+.verdict {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+/* ---- tables -------------------------------------------------------- */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 48rem;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.6rem 1rem 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+th { font-weight: 600; color: var(--ink); }
+thead th { border-bottom: 2px solid var(--ink); }
+td:last-child, th:last-child { padding-right: 0; }
+
+.table-scroll { overflow-x: auto; }
+
+/* ---- figures and placeholders ------------------------------------- */
+
+figure { margin: 0 0 2rem; }
+figcaption { font-size: 0.9rem; color: var(--muted); margin-top: 0.5rem; }
+
+.gallery {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}
+
+.gallery figure { margin: 0; }
+.gallery img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--tint);
+}
+
+/* Anything carrying .todo is placeholder content that still has to be
+   written or supplied. Remove the class once the real content is in. */
+.todo {
+  border: 1.5px dashed var(--accent);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: var(--accent-deep);
+  background: var(--tint);
+}
+
+p.todo, li.todo { max-width: var(--measure); }
+td .todo { display: inline-block; padding: 0.1rem 0.5rem; font-size: 0.85rem; }
+
+/* ---- team ----------------------------------------------------------- */
+
+.team {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: none;
+  display: grid;
+  gap: 1.5rem 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+}
+
+.team li { margin: 0; }
+.team .name { font-weight: 600; margin: 0; }
+.team .role { color: var(--muted); margin: 0 0 0.25rem; }
+.team p { margin: 0; }
+
+/* ---- footer -------------------------------------------------------- */
+
+.site-footer {
+  margin-top: 2rem;
+  padding: 2.5rem 0 3rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.site-footer p { margin: 0 0 0.35rem; }
+.site-footer a { color: inherit; }
+
+/* ---- responsive ---------------------------------------------------- */
+
+@media (max-width: 40rem) {
+  body { font-size: 1rem; }
+  main > section { padding: 2.5rem 0; }
+  .hero { padding: 2.5rem 0 2rem; }
+  th, td { padding-right: 0.75rem; }
+}
+
+@media print {
+  .site-nav { display: none; }
+  a { color: inherit; text-decoration: none; }
+}
