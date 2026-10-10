@@ -27,6 +27,7 @@ html { scroll-behavior: smooth; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .hero-figure img { animation: none; }
 }
 
 body {
@@ -283,6 +284,16 @@ main > section:nth-of-type(4)::before {
   width: 100%;
   margin-bottom: -2.5rem;
   filter: drop-shadow(0 24px 40px rgba(20, 8, 70, 0.5));
+  transform-origin: 50% 100%;
+  animation: hero-character-float 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes hero-character-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  25% { transform: translate3d(0.15rem, -0.35rem, 0) rotate(0.5deg); }
+  50% { transform: translate3d(0, -0.7rem, 0) rotate(0deg); }
+  75% { transform: translate3d(-0.15rem, -0.35rem, 0) rotate(-0.5deg); }
 }
 
 @media (max-width: 52rem) {
