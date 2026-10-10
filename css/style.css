@@ -46,8 +46,15 @@ h1, h2, h3 {
 }
 
 h1 { font-size: clamp(2.25rem, 5vw, 3.5rem); max-width: 22ch; }
-h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); margin-top: 0; }
+h2 { font-size: clamp(2rem, 4.4vw, 3.25rem); margin-top: 0; max-width: 18ch; }
 h3 { font-size: 1.15rem; letter-spacing: -0.01em; }
+
+h1 em, h2 em {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  color: var(--accent);
+}
 
 p, ul, ol, table { max-width: var(--measure); }
 p { margin: 0 0 1em; }
@@ -84,7 +91,9 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 main > section {
-  padding: 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4rem, 8vw, 7rem) 0;
   border-top: 1px solid var(--line);
 }
 
@@ -95,6 +104,39 @@ main > section:first-child { border-top: 0; }
   line-height: 1.5;
   color: var(--muted);
   max-width: 54ch;
+}
+
+.section-kicker {
+  margin: 0 0 0.75rem;
+  color: var(--accent-deep);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* Alternating washes make the long page feel like a sequence of chapters. */
+main > section:nth-of-type(2) { background: #f3f0fb; }
+main > section:nth-of-type(3) { background: #dfeaff; }
+main > section:nth-of-type(4) { background: #e5efff; }
+main > section:nth-of-type(5) { background: #ebe5ff; }
+main > section:nth-of-type(6) { background: #f1edff; }
+
+main > section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -8rem;
+  top: -9rem;
+  border-radius: 50%;
+  background: rgba(106, 76, 219, 0.08);
+  pointer-events: none;
+}
+
+main > section:nth-of-type(4)::before {
+  background: rgba(126, 190, 255, 0.24);
 }
 
 /* ---- header and navigation ---------------------------------------- */
@@ -112,10 +154,14 @@ main > section:first-child { border-top: 0; }
 }
 
 .brand {
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1.12rem;
+  font-weight: 850;
+  letter-spacing: 0.14em;
   text-decoration: none;
-  color: var(--ink);
+  color: var(--accent-deep);
   margin-right: auto;
 }
 
@@ -208,11 +254,11 @@ main > section:first-child { border-top: 0; }
   text-decoration: none;
   font-weight: 600;
   color: var(--ink);
-  background: #eef58a;
-  border: 2px solid #eef58a;
+  background: #d9d0ff;
+  border: 2px solid #d9d0ff;
 }
 
-.hero-links a:hover { background: #f7fbb4; border-color: #f7fbb4; color: var(--ink); }
+.hero-links a:hover { background: #e8e2ff; border-color: #e8e2ff; color: var(--ink); }
 
 .hero-links .ghost {
   color: #ffffff;
@@ -244,11 +290,82 @@ main > section:first-child { border-top: 0; }
   .hero-copy { padding: 3rem 0 2rem; }
   .hero-figure { max-width: 16rem; justify-self: center; padding-top: 0; }
   .hero-figure img { margin-bottom: -1.5rem; }
+  .page-title h1 { max-width: none; }
 }
 
 /* ---- page title block (VE pages) ---------------------------------- */
 
-.page-title { padding: 3rem 0 2.5rem; }
+.page-title {
+  position: relative;
+  min-height: clamp(36rem, 72vh, 50rem);
+  padding: 0;
+  overflow: hidden;
+  border-top: 0;
+  background: #1b1540;
+}
+
+.page-title .wrap {
+  position: relative;
+  display: block;
+  min-height: clamp(36rem, 72vh, 50rem);
+  max-width: none;
+  padding-top: clamp(3rem, 8vw, 7rem);
+  padding-bottom: clamp(3rem, 8vw, 7rem);
+  background: transparent;
+}
+
+.page-title .wrap::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(17, 13, 45, 0.7) 0%, rgba(27, 21, 64, 0.5) 25%, rgba(59, 40, 139, 0.18) 48%, rgba(59, 40, 139, 0.02) 72%, rgba(59, 40, 139, 0) 88%),
+    linear-gradient(180deg, rgba(27, 21, 64, 0.15), rgba(27, 21, 64, 0.08));
+}
+
+.page-title .section-kicker { color: var(--page-accent, #b9a7ff); }
+
+.page-title-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(30rem, 58vh, 42rem);
+  max-width: 39rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  border-left: 1px solid rgba(255, 255, 255, 0.72);
+  color: #ffffff;
+  text-shadow: 0 0.15rem 1.2rem rgba(8, 5, 28, 0.42);
+}
+
+.page-title-copy .section-kicker { color: var(--page-accent, #b9a7ff); }
+.page-title-copy .byline,
+.page-title-copy .lede { color: rgba(255, 255, 255, 0.9); }
+.page-title-copy .byline {
+  display: inline-flex;
+  align-self: flex-start;
+  width: fit-content;
+  padding: 0.35rem 0.75rem;
+  color: #ffffff;
+  background: rgba(8, 5, 28, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+  box-shadow: 0 0.35rem 1rem rgba(8, 5, 28, 0.28);
+  text-shadow: none;
+}
+.page-title-copy h1 { color: #ffffff; }
+
+.page-title h1 {
+  font-size: clamp(3rem, 6vw, 5.25rem);
+  max-width: 8ch;
+}
+
+.page-title h1 em {
+  color: #c7a8ff;
+}
 
 .page-title .byline {
   font-size: 1.1rem;
@@ -256,11 +373,332 @@ main > section:first-child { border-top: 0; }
   margin: 0 0 1.5rem;
 }
 
+/* Keep the credit readable over every environment image. This comes after
+   the general byline rule so it cannot be overridden by the page title styles. */
+.page-title .page-title-copy .byline {
+  color: var(--ink);
+  background: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 0.35rem 1rem rgba(8, 5, 28, 0.35);
+}
+
 .page-title .cover {
-  margin-top: 2rem;
-  border-radius: 6px;
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
   overflow: hidden;
-  background: var(--tint);
+  background: #1b1540;
+  box-shadow: none;
+}
+
+.page-title .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  image-rendering: auto;
+  filter: brightness(1.12) saturate(1.12) contrast(1.05);
+}
+
+/* Resources and Contact use an editorial intro rather than an image hero.
+   Keep them independent from the full-bleed environment-page treatment. */
+
+.support-page .page-title {
+  min-height: auto;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: linear-gradient(135deg, #f0ecff 0%, #e6f5fb 100%);
+}
+
+.support-page .page-title .wrap {
+  min-height: auto;
+  max-width: var(--wide);
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.support-page .page-title .wrap::after {
+  display: none;
+}
+
+.support-page .page-title h1,
+.support-page .page-title .lede {
+  position: relative;
+  z-index: 2;
+}
+
+.support-page .page-title h1 {
+  color: var(--ink);
+  max-width: 12ch;
+}
+
+.support-page .page-title .lede {
+  color: var(--muted);
+}
+
+.support-page main > section:nth-of-type(2) { background: #f4f1ff; }
+.support-page main > section:nth-of-type(3) { background: #e8f6fb; }
+.support-page main > section:nth-of-type(4) { background: #f2efff; }
+
+.support-page main > section:not(.page-title) h2 {
+  color: var(--accent-deep);
+}
+
+/* ---- environment pages -------------------------------------------
+   These sections echo the homepage's chapter rhythm, but use a quieter
+   editorial layout so each environment feels like its own case study. */
+
+.environment-page {
+  --page-accent: #b9a7ff;
+  --page-wash: #f0ecff;
+  --page-wash-strong: #e2edff;
+  --page-deep: #4b328e;
+}
+
+.environment-page--apple {
+  --page-accent: #b9a7ff;
+  --page-wash: #f0ecff;
+  --page-wash-strong: #e2edff;
+  --page-deep: #4b328e;
+}
+
+.environment-page--water {
+  --page-accent: #b9a7ff;
+  --page-wash: #f0ecff;
+  --page-wash-strong: #e2edff;
+  --page-deep: #4b328e;
+}
+
+.environment-page--bunny {
+  --page-accent: #b9a7ff;
+  --page-wash: #f2ecff;
+  --page-wash-strong: #e9f3ff;
+  --page-deep: #4b328e;
+}
+
+.environment-page main > section:nth-of-type(2) { background: var(--page-wash); }
+.environment-page main > section:nth-of-type(3) { background: var(--page-wash-strong); }
+.environment-page main > section:nth-of-type(4) { background: color-mix(in srgb, var(--page-wash) 68%, white); }
+.environment-page main > section:nth-of-type(5) { background: color-mix(in srgb, var(--page-wash-strong) 66%, white); }
+.environment-page main > section:nth-of-type(6) { background: color-mix(in srgb, var(--page-wash) 54%, white); }
+
+.environment-page main > section:not(.page-title)::before {
+  width: 24rem;
+  height: 24rem;
+  right: -12rem;
+  top: -12rem;
+  background: color-mix(in srgb, var(--page-accent) 20%, transparent);
+}
+
+.environment-page main > section:not(.page-title)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(34vw, 25rem);
+  height: 0.35rem;
+  background: linear-gradient(90deg, var(--page-accent), transparent);
+  pointer-events: none;
+}
+
+.environment-page main > section:not(.page-title) .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+.environment-page main > section:not(.page-title) h2 {
+  color: var(--page-deep);
+  max-width: 12ch;
+}
+
+.environment-page main > section:not(.page-title) h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 0.25rem;
+  margin-top: 1.2rem;
+  border-radius: 999px;
+  background: var(--page-accent);
+}
+
+.environment-page main > section:not(.page-title) h3 {
+  color: var(--page-deep);
+}
+
+.environment-page #overview .wrap,
+.environment-page #results .wrap,
+.environment-page #documents .wrap {
+  display: grid;
+  grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 1.45fr);
+  gap: 1rem clamp(2rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.environment-page #overview h2,
+.environment-page #results h2,
+.environment-page #documents h2 {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.environment-page #results h2 {
+  grid-row: 1 / span 4;
+}
+
+.environment-page #overview .wrap > :not(h2),
+.environment-page #results .wrap > :not(h2),
+.environment-page #documents .wrap > :not(h2) {
+  grid-column: 2;
+}
+
+.environment-page #design .wrap {
+  display: block;
+}
+
+.environment-page #design {
+  overflow: visible;
+}
+
+.environment-page #design h2 {
+  max-width: 14ch;
+  margin-bottom: 1.5rem;
+}
+.environment-page #design h3 {
+  margin: 2.5rem 0 0.75rem;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+}
+.environment-page #design .gallery { margin-top: 0; }
+.environment-page .todo {
+  border-color: color-mix(in srgb, var(--page-accent) 70%, var(--accent));
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.environment-page #results .tally {
+  margin-top: 0;
+  padding: 1rem;
+  border: 1px solid color-mix(in srgb, var(--page-accent) 55%, var(--line));
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.environment-page #results .wrap {
+  row-gap: 0;
+}
+
+.environment-page #results .verdict {
+  margin-bottom: 0.35rem;
+}
+
+.environment-page #results .tally-note {
+  margin-top: 0.45rem;
+}
+
+.environment-page #results .tally li.met,
+.environment-page #results .tally li.part {
+  border-color: var(--page-deep);
+}
+
+.environment-page .gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.2fr) minmax(0, 0.88fr);
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  align-items: center;
+}
+
+.environment-page .gallery figure {
+  min-width: 0;
+  margin: 0;
+  position: relative;
+  z-index: 0;
+  transition: transform 220ms ease, z-index 220ms ease;
+}
+
+.environment-page .gallery figure:hover,
+.environment-page .gallery figure:focus-within {
+  z-index: 10;
+  transform: translateY(-0.45rem) scale(1.7);
+}
+
+.environment-page .gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid rgba(106, 76, 219, 0.4);
+  border-radius: 0.8rem;
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 0.8rem 1.5rem rgba(53, 35, 126, 0.1);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.environment-page .gallery figure:hover img,
+.environment-page .gallery figure:focus-within img {
+  box-shadow: 0 1.2rem 2.2rem rgba(53, 35, 126, 0.22);
+}
+
+.environment-page .gallery-featured img {
+  aspect-ratio: 16 / 10;
+  border-color: rgba(157, 234, 255, 0.9);
+  box-shadow: 0 1rem 2rem rgba(53, 35, 126, 0.17);
+}
+
+.environment-page .gallery figcaption {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-top: 0.7rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.environment-page .gallery-number {
+  flex: none;
+  color: var(--page-deep);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.environment-page .gallery-number::after {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  margin: 0 0.35rem 0.25rem;
+  background: var(--page-accent);
+}
+
+@media (max-width: 42rem) {
+  .page-title-copy {
+    min-height: 26rem;
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .environment-page #overview .wrap,
+  .environment-page #design .wrap,
+  .environment-page #results .wrap,
+  .environment-page #documents .wrap {
+    display: block;
+  }
+
+  .environment-page main > section:not(.page-title) h2 {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .environment-page #design h3 { margin-top: 2rem; }
+  .environment-page #design .gallery { margin-top: 0.75rem; }
+  .environment-page .gallery { grid-template-columns: 1fr; }
+  .environment-page .gallery-featured { order: -1; }
+  .environment-page .gallery figure:hover,
+  .environment-page .gallery figure:focus-within {
+    transform: translateY(-0.35rem) scale(1.35);
+  }
 }
 
 /* ---- environment list (home) -------------------------------------- */
@@ -275,20 +713,63 @@ main > section:first-child { border-top: 0; }
   grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
 }
 
-.environments li { margin: 0; }
+.environments > li {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(160deg, #24145f 0%, #171039 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 1.25rem;
+  box-shadow: 0 1.25rem 2rem rgba(39, 24, 107, 0.2);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.environments .card-number {
+  position: absolute;
+  z-index: 1;
+  top: 0.8rem;
+  left: 1rem;
+  color: #b9a7ff;
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  text-shadow: 0 0.15rem 1rem rgba(27, 21, 64, 0.35);
+}
+
+.environments > li:nth-child(1) { transform: rotate(-1deg); }
+.environments > li:nth-child(2) { transform: translateY(0.8rem); }
+.environments > li:nth-child(3) { transform: rotate(1deg); }
+.environments > li:hover,
+.environments > li:focus-within {
+  transform: translateY(-0.35rem) rotate(0deg);
+  box-shadow: 0 1.5rem 2.5rem rgba(39, 24, 107, 0.28);
+}
 
 .environments .thumb {
   width: 100%;
-  height: 13rem;
+  height: 14rem;
   object-fit: cover;
-  border-radius: 6px;
   background: var(--tint);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
-.environments h3 { margin-bottom: 0.15rem; }
-.environments .owner { color: var(--muted); margin: 0 0 0.75rem; }
-.environments p { margin-bottom: 1rem; }
+.environments h3,
+.environments .owner,
+.environments li > p,
+.environments .tally {
+  position: relative;
+  z-index: 1;
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
+.environments h3 { margin-top: 1.1rem; margin-bottom: 0.15rem; }
+.environments h3 a { color: #ffffff; }
+.environments h3 a:hover { color: #b9a7ff; }
+.environments .owner { color: rgba(255, 255, 255, 0.7); margin-bottom: 0.75rem; }
+.environments li > p { margin-bottom: 1rem; }
 
 /* ---- the seven-part PLAY tally ------------------------------------
    Each list item is one measured component of PLAY.
@@ -301,7 +782,13 @@ main > section:first-child { border-top: 0; }
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  align-items: center;
+  align-content: flex-start;
   max-width: none;
+}
+
+.environments .tally {
+  margin-bottom: 1.25rem;
 }
 
 .tally li {
@@ -312,8 +799,37 @@ main > section:first-child { border-top: 0; }
   padding: 0.25rem 0.7rem 0.25rem 0.55rem;
   border-radius: 999px;
   font-size: 0.875rem;
+  line-height: 1.2;
+  min-height: 2rem;
+  white-space: nowrap;
   border: 1px solid var(--faint);
   color: var(--muted);
+}
+
+.environments .tally li {
+  position: relative;
+  z-index: 0;
+  flex: 0 0 auto;
+  color: var(--ink);
+  border-color: var(--faint);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.environments .tally .met,
+.environments .tally .part {
+  color: var(--ink);
+  border-color: var(--accent);
+  background: var(--tint);
+}
+
+.environments .tally .met::before,
+.environments .tally .part::before {
+  border-color: var(--accent);
+}
+
+.environments .tally .met::before { background: var(--accent); }
+.environments .tally .part::before {
+  background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
 }
 
 .tally li::before {
