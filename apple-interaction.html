@@ -44,66 +44,140 @@
     <div class="wrap">
       <h2>Start with the <em>interaction</em></h2>
       <div class="panel">
-                  <p>Apple Interaction is a virtual reality environment set in a circular woodland meadow, with a single large tree at its centre and a squirrel non-playable character (NPC) as the participant's counterpart. It was designed to elicit PLAY. Accordingly, it contains no score, visible timer, or explicit objective, and each session lasts approximately 7.5 minutes.</p>
-      <p>The interaction centres on throwing and catching apples. Apples rest on the ground and grow on the tree, and the participant can pick them up and throw them to the squirrel. The squirrel monitors the participant's position and the trajectory of thrown apples, and responds by chasing and catching them, offering an apple to the participant, dodging a throw, evading in a keep-away pattern, or climbing the tree to drop an apple from above. Either party can initiate an exchange, producing a reciprocal sequence of turns.</p>
-      <p>The environment is intended to make this kind of interaction feel natural without imposed rules. It combines an open, daylit setting with a responsive and expressive squirrel, so that play can arise from the interaction itself.</p></div>
+        <p>Apple Interaction is a virtual reality environment set in a circular woodland meadow, with a single large tree at its centre and a squirrel non-playable character (NPC) as the participant's counterpart. It was designed to elicit PLAY. Accordingly, it contains no score, visible timer, or explicit objective, and each session lasts 7.5 minutes.</p>
+        <p>The interaction centres on throwing and catching apples. Apples rest on the ground and grow on the tree, and the participant can pick them up and throw them to the squirrel. The squirrel monitors the participant's position and the trajectory of thrown apples, and responds by chasing and catching them, offering an apple to the participant, dodging a throw, evading in a keep-away pattern, or climbing the tree to drop an apple from above. Either party can initiate an exchange, producing a reciprocal sequence of turns.</p>
+        <p>The environment is intended to make this kind of interaction feel natural without imposed rules. It combines an open, daylit setting with a responsive and expressive squirrel, so that play can arise from the interaction itself.</p>
+      </div>
+    </div>
   </section>
+
 
   <section id="design">
     <div class="wrap">
       <h2>What happens <em>in this world</em></h2>
       <div class="panel">
-                        <h3>The squirrel</h3>
-      <p>The squirrel is a navigation-mesh agent controlled by a finite state machine, in which it occupies one behaviour at a time (for example idling, offering an apple, chasing, or climbing) and transitions between behaviours in response to events. A lightweight mood model tracks two variables, playfulness and tiredness, which scale its movement speed and bias its choice of behaviour over the course of a session. This mood model is the only adaptive logic in the environment; there is no difficulty adjustment or scoring.</p>
-      <p>The squirrel's sensors register the participant's distance and idleness, together with the trajectory and force of thrown apples. Its responses to being thrown at include catching, dodging, a startle, a playful trip, and a taunt, and its catch animation varies with the height and side from which an apple arrives. Its facial expressions are hand-drawn textures that change with mood, gaze direction, and blinking, and the pitch and volume of its vocalisations vary with its mood state.</p>
-      <h3>The meadow and the player's actions</h3>
-      <p>The scene is a circular woodland meadow centred on a large tree. Up to five loose apples rest on the ground and respawn at fixed points when fewer than three remain; further apples grow on the tree and become throwable when grabbed. Apples use a custom shader with a star-shaped sparkle effect and are available in several colours, and the grass uses a separate custom shader. The participant moves using short comfort hops in the direction of gaze, and grabs and throws objects with the controller trigger.</p>
-      <h3>Design rationale</h3>
-      <p>An animal NPC was chosen deliberately. Prior work on virtual companions indicates that a stylised, non-human character supports social presence and positive affect more effectively than a realistic human avatar, and studies of virtual pets report that responsive animals, including ones that bring objects to the user, help to initiate and sustain engagement. A stylised animal also avoids the uncanny valley, the unease that near-realistic, humanlike characters can provoke when they are almost, but not quite, convincing. The squirrel was therefore given a deliberately cute, stylised appearance, to encourage approach and rapport without that risk. Its mood-dependent facial expressions and vocalisations serve as social cues, since expressive behaviour, gaze, and vocal intonation are known to make virtual agents more believable. Soft, rounded textures were chosen because they have been associated with warmth and joy.</p>
-      <p>The remaining sensory choices follow similar evidence. Natural, open, daylit environments have been linked to more positive affect than urban ones, bright colours are associated with joy, and faster-tempo music is generally judged to be happier, so a moderately fast musical loop and ambient outdoor sound were used. Locomotion uses short hops to reduce the risk of cybersickness. No goal is imposed, in keeping with the autotelic nature of play.</p><figure class="gallery-supporting">
-          <img src="img/placeholder.svg" alt="" width="1600" height="900">
-          <figcaption><span class="gallery-number">01</span><span>A view into the woodland environment</span></figcaption>
-        </figure>
-        <figure class="gallery-featured">
-          <img src="img/placeholder.svg" alt="" width="1600" height="900">
-          <figcaption><span class="gallery-number">02</span><span>The squirrel interaction</span></figcaption>
-        </figure>
-        <figure class="gallery-supporting">
-          <img src="img/placeholder.svg" alt="" width="1600" height="900">
-          <figcaption><span class="gallery-number">03</span><span>A moment in the play loop</span></figcaption>
-        </figure>
-      </div>
+        <h3>The squirrel</h3>
+        <p>The squirrel is a navigation-mesh agent controlled by a finite state machine, in which it occupies one behaviour at a time (for example idling, offering an apple, chasing, or climbing) and transitions between behaviours in response to events. A lightweight mood model tracks two variables, playfulness and tiredness, which scale its movement speed and bias its choice of behaviour over the course of a session. This mood model is the only adaptive logic in the environment; there is no difficulty adjustment or scoring.</p>
+        <p>The squirrel's sensors register the participant's distance and idleness, together with the trajectory and force of thrown apples. Its responses to being thrown at include catching, dodging, a startle, a playful trip, and a taunt, and its catch animation varies with the height and side from which an apple arrives. Its facial expressions are hand-drawn textures that change with mood, gaze direction, and blinking, and the pitch and volume of its vocalisations vary with its mood state.</p>
+        <h3>The meadow and the player's actions</h3>
+        <p>The scene is a circular woodland meadow centred on a large tree. Up to five loose apples rest on the ground and respawn at fixed points when fewer than three remain; further apples grow on the tree and become throwable when grabbed. Apples use a custom shader with a star-shaped sparkle effect and are available in several colours, and the grass uses a separate custom shader. The participant moves using short comfort hops in the direction of gaze, and grabs and throws objects with the controller trigger.</p>
+        <h3>Design rationale</h3>
+        <p>An animal NPC was chosen deliberately. Prior work on virtual companions indicates that a stylised, non-human character supports social presence and positive affect more effectively than a realistic human avatar, and studies of virtual pets report that responsive animals, including ones that bring objects to the user, help to initiate and sustain engagement. A stylised animal also avoids the uncanny valley, the unease that near-realistic, humanlike characters can provoke when they are almost, but not quite, convincing. The squirrel was therefore given a deliberately cute, stylised appearance, to encourage approach and rapport without that risk. Its mood-dependent facial expressions and vocalisations serve as social cues, since expressive behaviour, gaze, and vocal intonation are known to make virtual agents more believable. Soft, rounded textures were chosen because they have been associated with warmth and joy.</p>
+        <p>The remaining sensory choices follow similar evidence. Natural, open, daylit environments have been linked to more positive affect than urban ones, bright colours are associated with joy, and faster-tempo music is generally judged to be happier, so a moderately fast musical loop and ambient outdoor sound were used. Locomotion uses short hops to reduce the risk of cybersickness. No goal is imposed, in keeping with the autotelic nature of play.</p>
+        <h3>Gallery</h3>
+        <div class="gallery">
+          <figure class="gallery-supporting">
+            <img src="img/placeholder.svg" alt="" width="1600" height="900">
+            <figcaption><span class="gallery-number">01</span><span>A view into the woodland environment</span></figcaption>
+          </figure>
+          <figure class="gallery-featured">
+            <img src="img/placeholder.svg" alt="" width="1600" height="900">
+            <figcaption><span class="gallery-number">02</span><span>The squirrel interaction</span></figcaption>
+          </figure>
+          <figure class="gallery-supporting">
+            <img src="img/placeholder.svg" alt="" width="1600" height="900">
+            <figcaption><span class="gallery-number">03</span><span>A moment in the play loop</span></figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="results">
+  <section id="method">
+    <div class="wrap">
+      <h2>How it <em>was tested</em></h2>
+      <div class="panel">
+        <p>The procedure shared by all three environments is described on the <a href="method.html">Method page</a>. For Apple Interaction, 25 participants took part in a within-subjects design with three measurement points: P1 before any VR exposure, P2 after the neutral tutorial scene, and P3 after the Apple Interaction environment. The Self-Assessment Manikin (SAM), PANAS-X and the Affective Neuroscience State Scales (ANSS) were completed at all three points. Presence (iPQ) was measured at P2 and P3, co-presence and social presence at P3 only, and behavioural telemetry was logged throughout the session.</p>
+        <p>Each part of the definition of PLAY was mapped to a measure. Valence, arousal and dominance were measured with SAM, joy with the PANAS-X Joviality subscale, and PLAY itself with the ANSS PLAY subscale. Sociality was measured with co-presence and social presence, and reciprocity with the proportion of apple-related interactions initiated by the participant.</p>
+        <p>For each measure with three readings, an omnibus test (repeated-measures ANOVA or Friedman test) was run first, and Holm-Bonferroni-corrected pairwise comparisons were made only where the omnibus test was significant. SAM scores at P3 were tested against a threshold at the upper third of the scale. Joviality and ANSS PLAY were each compared with the next-highest subscale, and behavioural indicators were correlated with ANSS PLAY ratings. Interaction frequency was compared across four two-minute blocks of the session with a Friedman test.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="full">
     <div class="wrap">
       <h2>What this experiment <em>showed</em></h2>
       <div class="panel">
-      <p class="verdict">2 of 7 parts met</p>
-    <ul class="tally">
-      <li class="part">Valence <span class="vh">(partly met)</span></li>
-      <li class="part">Arousal <span class="vh">(partly met)</span></li>
-      <li class="none">Dominance <span class="vh">(not met)</span></li>
-      <li class="met">Reciprocity <span class="vh">(met)</span></li>
-      <li class="none">Sociality <span class="vh">(not met)</span></li>
-      <li class="part">Joy <span class="vh">(partly met)</span></li>
-      <li class="met">PLAY <span class="vh">(met)</span></li>
-    </ul>
-      <p class="tally-note">Filled: met. Half: partly met. Empty: not met.</p>
-                  <p>Twenty-five participants completed self-report measures at three points: before any VR exposure, after a short neutral VR scene, and after the meadow. Each component of PLAY was tested against either a predefined threshold or the pre-VR baseline.</p>
-      <p><strong>Met.</strong> PLAY was the highest-rated subscale on the Affective Neuroscience State Scales, exceeding its closest competitor, SEEKING (M = 19.88 vs. 18.80, p = .017), and it increased significantly across the three points (p &lt; .001). Reciprocity was also met. On average, 62.4% of interactions were initiated by the participant, and the proportion initiated by the participant was positively correlated with PLAY ratings (Spearman's &rho; = .52, p = .008). This correlation was robust to leave-one-out analysis and to the removal of outliers. Interaction frequency did not decline across the session (p = .449).</p>
-      <p><strong>Partly met.</strong> Valence exceeded the threshold for "high" (Mdn = 8, p &lt; .001) and increased from M = 7.16 before VR to M = 8.08 after the meadow. Arousal increased from M = 4.42 to M = 6.18 but did not exceed the "high" threshold (Mdn = 7, p = .363). Joviality increased from M = 3.33 to M = 4.02, but was not significantly higher than surprise (M = 4.02 vs. 3.72, p = .079).</p>
-      <p><strong>Not met.</strong> Dominance exceeded the threshold (Mdn = 7, p = .023) but did not change significantly across the three points (p = .101). For sociality, co-presence was significantly above the scale midpoint (M = 3.64, midpoint = 3, p &lt; .001), whereas social presence was not (M = 3.87, midpoint = 4, p = .691).</p>
-      <p>Most of the increase in positive affect was already evident after the neutral scene, indicating that much of it reflected being in VR generally rather than the meadow specifically. Surprise was the only measure to increase significantly between the neutral scene and the meadow (p<sub>Holm</sub> = .021). The environment therefore produced positive, engaged experiences and a clear PLAY signal, but these results do not allow the effect to be attributed to the design alone. The proportion of interactions initiated by the participant, rather than their total number, was the behavioural measure most closely associated with PLAY. The sample (N = 25) was smaller than the planned target of 30, so the results should be read as partial evidence.</p>
-      <figure>
-        <img src="img/outlier_robustness.png" alt="Participant-initiated ratio plotted against PLAY rating, with outliers marked and a leave-one-out sensitivity check" width="1600" height="900" loading="lazy" decoding="async">
-        <figcaption>The association between participant-initiated interactions and PLAY ratings was robust to outlier removal.</figcaption>
-      </figure>
-        <img src="img/outlier_robustness.png" alt="Participant-initiated ratio plotted against PLAY rating, with outliers marked and a leave-one-out check" width="1600" height="900" loading="lazy" decoding="async">
-        <figcaption>The link between starting more exchanges and rating PLAY higher held up when outliers were removed.</figcaption>
-      </figure></div>
+        <p class="verdict">2 of 7 parts met</p>
+        <ul class="tally">
+          <li class="part">Valence <span class="vh">(partly met)</span></li>
+          <li class="part">Arousal <span class="vh">(partly met)</span></li>
+          <li class="none">Dominance <span class="vh">(not met)</span></li>
+          <li class="met">Reciprocity <span class="vh">(met)</span></li>
+          <li class="none">Sociality <span class="vh">(not met)</span></li>
+          <li class="part">Joy <span class="vh">(partly met)</span></li>
+          <li class="met">PLAY <span class="vh">(met)</span></li>
+        </ul>
+        <p class="tally-note">Filled: met. Half: partly met. Empty: not met.</p>
+        <p>Twenty-five participants completed self-report measures at three points: before any VR exposure, after a short neutral VR scene, and after the meadow. Each component of PLAY was tested against either a predefined threshold or the pre-VR baseline.</p>
+        <p><strong>Met.</strong> PLAY was the highest-rated subscale on the Affective Neuroscience State Scales, exceeding its closest competitor, SEEKING (M = 19.88 vs. 18.80, p = .017), and it increased significantly across the three points (p &lt; .001). Reciprocity was also met. On average, 62.4% of interactions were initiated by the participant, and the proportion initiated by the participant was positively correlated with PLAY ratings (Spearman's &rho; = .52, p = .008). This correlation was robust to leave-one-out analysis and to the removal of outliers. Interaction frequency did not decline across the session (p = .449).</p>
+        <p><strong>Partly met.</strong> Valence exceeded the threshold for "high" (Mdn = 8, p &lt; .001) and increased from M = 7.16 before VR to M = 8.08 after the meadow. Arousal increased from M = 4.42 to M = 6.18 but did not exceed the "high" threshold (Mdn = 7, p = .363). Joviality increased from M = 3.33 to M = 4.02, but was not significantly higher than surprise (M = 4.02 vs. 3.72, p = .079).</p>
+        <p><strong>Not met.</strong> Dominance exceeded the threshold (Mdn = 7, p = .023) but did not change significantly across the three points (p = .101). For sociality, co-presence was significantly above the scale midpoint (M = 3.64, midpoint = 3, p &lt; .001), whereas social presence was not (M = 3.87, midpoint = 4, p = .691).</p>
+        <p>Most of the increase in positive affect was already evident after the neutral scene, indicating that much of it reflected being in VR generally rather than the meadow specifically. Surprise was the only measure to increase significantly between the neutral scene and the meadow (p<sub>Holm</sub> = .021). The environment therefore produced positive, engaged experiences and a clear PLAY signal, but these results do not allow the effect to be attributed to the design alone. The proportion of interactions initiated by the participant, rather than their total number, was the behavioural measure most closely associated with PLAY. The sample (N = 25) was smaller than the planned target of 30, so the results should be read as partial evidence.</p>
+
+        <h3>Outcome of every test</h3>
+        <div class="table-scroll">
+          <table>
+            <caption>Outcome of every test</caption>
+            <thead>
+              <tr><th scope="col">Test</th><th scope="col">p</th><th scope="col">Outcome</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>SAM valence at P3 above threshold</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>SAM arousal at P3 above threshold</td><td>.363</td><td>Not supported</td></tr>
+              <tr><td>SAM dominance at P3 above threshold</td><td>.023</td><td>Supported</td></tr>
+              <tr><td>SAM valence changed across the three readings</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>SAM arousal changed across the three readings</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>SAM dominance changed across the three readings</td><td>.101</td><td>Not supported</td></tr>
+              <tr><td>Joviality changed across the three readings</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>Joviality was the highest PANAS-X subscale at P3 (vs. surprise)</td><td>.079</td><td>Not supported</td></tr>
+              <tr><td>ANSS PLAY changed across the three readings</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>ANSS PLAY was the highest ANSS subscale at P3 (vs. SEEKING)</td><td>.017</td><td>Supported</td></tr>
+              <tr><td>Presence above zero (iPQ neutral point)</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>Presence rose from P2 to P3</td><td>.108</td><td>Not supported</td></tr>
+              <tr><td>Co-presence above the midpoint</td><td>&lt; .001</td><td>Supported</td></tr>
+              <tr><td>Social presence above the midpoint</td><td>.691</td><td>Not supported</td></tr>
+              <tr><td>Participant-initiated interactions correlate with PLAY ratings</td><td>.008</td><td>Supported</td></tr>
+              <tr><td>The other five behavioural indicators correlate with PLAY ratings</td><td>&gt; .17</td><td>Not supported</td></tr>
+              <tr><td>Interaction frequency changed across the session</td><td>.449</td><td>No change (no decline)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="muted">Omnibus tests were run across the three readings, with Holm-Bonferroni correction for pairwise comparisons. Tests of presence, social presence and behavioural indicators are secondary and uncorrected. Full test statistics are in the final paper.</p>
+
+        <h3>Charts</h3>
+        <div class="gallery charts">
+          <figure>
+            <img src="img/apple-sam.png" alt="Box plots of SAM valence, arousal and dominance at the three readings" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">01</span><span>SAM valence, arousal and dominance across the three readings</span></figcaption>
+          </figure>
+          <figure>
+            <img src="img/apple-panasx.png" alt="Box plots of PANAS-X joviality and surprise at the three readings" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">02</span><span>PANAS-X joviality and surprise across the three readings</span></figcaption>
+          </figure>
+          <figure>
+            <img src="img/apple-anss.png" alt="Box plots of ANSS subscale scores at the three readings" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">03</span><span>ANSS subscale scores across the three readings</span></figcaption>
+          </figure>
+          <figure>
+            <img src="img/apple-behavioural.png" alt="Behavioural indicators plotted against ANSS PLAY ratings" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">04</span><span>Behavioural indicators and PLAY ratings</span></figcaption>
+          </figure>
+          <figure>
+            <img src="img/apple-temporal.png" alt="Interaction frequency across four two-minute blocks of the session" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">05</span><span>Interaction frequency across the session</span></figcaption>
+          </figure>
+          <figure>
+            <img src="img/outlier_robustness.png" alt="Participant-initiated ratio plotted against PLAY rating, with outliers marked and a leave-one-out sensitivity check" loading="lazy" decoding="async">
+            <figcaption><span class="gallery-number">06</span><span>The association between participant-initiated interactions and PLAY ratings was robust to outlier removal</span></figcaption>
+          </figure>
+        </div>
+
+        <h3>What it means</h3>
+        <p>Most of the rise in valence, arousal and joviality was already visible between the first and second readings, before the meadow. Surprise was the only measure to rise further from the tutorial to the meadow, which may partly reflect the novelty of VR. Dominance did not change reliably, whereas the proportion of participant-initiated interactions tracked PLAY. Behavioural initiative and self-reported dominance may therefore capture related aspects of agency, with different reliability.</p>
+        <p>Informal notes from the sessions suggest some candidate explanations for the weaker results. These were not collected systematically and should not be read as findings. Participants tried to grab apples out of the squirrel's hand and to climb the tree. The squirrel sometimes threw from very close range, could not hold a second apple, and did not dodge.</p>
+        <p>These observations suggest four changes: a proximity-based grab, more consistent tree climbing, a reaction from the squirrel when it is hit, and more than one squirrel. A non-playful squirrel encounter in the tutorial would also provide a baseline for co-presence. The evidence is partial, from 25 participants against a target of 30, and a comparison across the three environments is needed.</p>
+      </div>
     </div>
   </section>
 
@@ -111,21 +185,21 @@
     <div class="wrap">
       <h2>Keep exploring <em>the project</em></h2>
       <div class="panel">
-      <div class="table-scroll">
-      <table>
-        <caption class="vh">Documents for the Apple Interaction environment</caption>
-        <thead>
-          <tr><th scope="col">Document</th><th scope="col">Format</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><a href="docs/Mdludlu_Final_Paper.pdf">Final paper: Using Virtual Reality to Elicit the PLAY Emotion: Design and Evaluation of an Apple Interaction Environment</a></td><td>PDF</td></tr>
-          <tr><td><a href="docs/Mdludlu_Literature_Review.pdf">Literature review: The Elicitation of PLAY in Virtual Reality</a></td><td>PDF</td></tr>
-        </tbody>
-      </table>
-      </div>
-      <h3>Source code</h3>
-      <p class="todo">Link to the compressed source archive for this environment: file to be added.</p>
-      <p class="code-note">Each archive holds the C# scripts, the Unity project settings and the package manifest, which is enough to read the code and see which Unity version and packages it was built with. Models, textures, audio and other third-party assets are left out to keep the archive small.</p>
+        <div class="table-scroll">
+          <table>
+            <caption class="vh">Documents for the Apple Interaction environment</caption>
+            <thead>
+              <tr><th scope="col">Document</th><th scope="col">Format</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><a href="docs/Mdludlu_Final_Paper.pdf">Final paper: Using Virtual Reality to Elicit the PLAY Emotion: Design and Evaluation of an Apple Interaction Environment</a></td><td>PDF</td></tr>
+              <tr><td><a href="docs/Mdludlu_Literature_Review.pdf">Literature review: The Elicitation of PLAY in Virtual Reality</a></td><td>PDF</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Source code</h3>
+        <p class="todo">Link to the compressed source archive for this environment: file to be added.</p>
+        <p class="code-note">Each archive holds the C# scripts, the Unity project settings and the package manifest, which is enough to read the code and see which Unity version and packages it was built with. Models, textures, audio and other third-party assets are left out to keep the archive small.</p>
       </div>
     </div>
   </section>
