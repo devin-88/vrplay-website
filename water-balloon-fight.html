@@ -77,7 +77,7 @@
       <p>Working through the framework for PLAY gives the environment its shape. The triggers to stage are rough-and-tumble interaction and fair role reversals; the suppressors to design out are perceived threats and unfamiliar surroundings, since PLAY only runs when FEAR, RAGE and PANIC/GRIEF are quiet. A friendly water balloon fight in an ordinary suburban backyard, against a non-threatening child, satisfies both: the stakes are plainly non-serious, the setting is familiar, and there is nowhere for a hidden threat to be.</p>
       <p>The fairness trigger is the hardest to deliver, because a fixed-difficulty opponent is fair for only one kind of player. The NPC therefore measures the participant's throwing skill from the same levers it plays with (throw accuracy, throw frequency and reaction time) and then sets its own skill above, below or equal to the participant's. The experience is sequenced so that every participant gets guaranteed periods of winning, losing and even play, which is the role reversal Panksepp observed in animal play. As the session goes on the NPC also introduces advanced moves: high-velocity throws, two-handed throws, high lobbed throws and side throws from behind its cover.</p>
       <p>Built in Unity 6 (6000.3.17f1) with the XR Interaction Toolkit and OpenXR, targeting the HTC Vive Pro. The NPC is a finite state machine (hide, stalk, throw, duck) with a separate difficulty layer, a threat detector that watches incoming balloons, and a line-of-sight check that decides when the player is exposed.</p>
-      <h3>Gallery</h3>
+      <h3>The NPC's throw</h3>
       <div class="gallery">
         <figure class="gallery-supporting">
           <img src="img/wb-npc-throw.jpg" alt="The NPC releasing a balloon from behind the far side of the pool, seen from the player's position" width="1600" height="900">
@@ -90,6 +90,21 @@
         <figure class="gallery-supporting">
           <img src="img/wb-splash.jpg" alt="A blue splash of water across the player's view as the balloon lands" width="1600" height="900">
           <figcaption><span class="gallery-number">03</span><span>Splash on impact across the player's view</span></figcaption>
+        </figure>
+      </div>
+      <h3>The player's throw</h3>
+      <div class="gallery">
+        <figure class="gallery-supporting">
+          <img src="img/wb-player2.jpg" alt="The player's view: a red water balloon held up in the controller hand, with the NPC standing by the flamingo float across the pool" width="1600" height="900">
+          <figcaption><span class="gallery-number">04</span><span>Balloon in hand, NPC in the open across the pool</span></figcaption>
+        </figure>
+        <figure class="gallery-featured">
+          <img src="img/wb-player3.jpg" alt="The player's view after the throw: the balloon in flight over the pool towards the NPC, with a trail behind it" width="1600" height="900">
+          <figcaption><span class="gallery-number">05</span><span>The throw: balloon in flight towards the NPC</span></figcaption>
+        </figure>
+        <figure class="gallery-supporting">
+          <img src="img/wb-player4.jpg" alt="The NPC hit by a water balloon, with a splash of water around it next to the flamingo float" width="1600" height="900">
+          <figcaption><span class="gallery-number">06</span><span>A hit: the balloon bursts on the NPC</span></figcaption>
         </figure>
       </div>
       </div>
@@ -194,12 +209,13 @@
         </thead>
         <tbody>
           <tr><td><a href="docs/Marais_Final_Paper.pdf">Final paper: Playing with Virtual Reality: Eliciting PLAY through a Water Balloon Virtual Environment</a></td><td>PDF</td></tr>
-          <tr><td>Literature review <span class="todo">file to be added</span></td><td>PDF</td></tr>
+          <tr><td><a href="docs/Marais_Literature_Review.pdf">Literature review</a></td><td>PDF</td></tr>
         </tbody>
       </table>
       </div>
       <h3>Source code</h3>
-      <p class="todo">Link to the compressed source archive for this environment, with a one-line note on what it contains and how to open it.</p>
+      <p><a href="code/WaterBalloonFight_source.zip">WaterBalloonFight_source.zip</a> (76 KB): 29 C# scripts, the Unity project settings, the package manifest and a README.</p>
+      <p class="code-note">Each archive holds the C# scripts, the Unity project settings and the package manifest, which is enough to read the code and see which Unity version and packages it was built with. Models, textures, audio and other third-party assets are left out to keep the archive small.</p>
       </div>
     </div>
   </section>

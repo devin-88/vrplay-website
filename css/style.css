@@ -1132,3 +1132,11 @@ figure.narrow img {
   .split-figure { justify-self: start; }
   .environment-page section.full .gallery.charts { grid-template-columns: 1fr; }
 }
+
+
+/* Note under each source-code link explaining what the archive holds */
+.code-note {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
