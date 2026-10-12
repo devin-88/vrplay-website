@@ -19,6 +19,7 @@ index.html                  Project (group) page. Entry point.
 apple-interaction.html      Zenande's environment page
 water-balloon-fight.html    Devin's environment page
 bunny-rally.html            Karla's environment page
+method.html                 Shared study design, instruments, hypotheses and analysis rules
 resources.html              Index of every document and code archive
 contact.html                Team and supervisor
 css/style.css               The only stylesheet

@@ -159,7 +159,7 @@ main > section:nth-of-type(4)::before {
   align-items: center;
   gap: 0.55rem;
   font-size: 1.12rem;
-  font-weight: 850;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-decoration: none;
   color: var(--accent-deep);
@@ -329,7 +329,7 @@ main > section:nth-of-type(4)::before {
   content: "";
   position: absolute;
   z-index: 1;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   pointer-events: none;
   background:
     linear-gradient(90deg, rgba(17, 13, 45, 0.7) 0%, rgba(27, 21, 64, 0.5) 25%, rgba(59, 40, 139, 0.18) 48%, rgba(59, 40, 139, 0.02) 72%, rgba(59, 40, 139, 0) 88%),
@@ -396,7 +396,7 @@ main > section:nth-of-type(4)::before {
 .page-title .cover {
   position: absolute;
   z-index: 0;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
   margin: 0;
   border: 0;
   border-radius: 0;
@@ -465,6 +465,10 @@ main > section:nth-of-type(4)::before {
   --page-accent: #b9a7ff;
   --page-wash: #f0ecff;
   --page-wash-strong: #e2edff;
+  --page-wash-soft: #f5f2ff;
+  --page-wash-strong-soft: #ecf3ff;
+  --page-wash-faint: #f7f5ff;
+  --page-wash-strong-faint: #f0f6ff;
   --page-deep: #4b328e;
 }
 
@@ -472,6 +476,10 @@ main > section:nth-of-type(4)::before {
   --page-accent: #b9a7ff;
   --page-wash: #f0ecff;
   --page-wash-strong: #e2edff;
+  --page-wash-soft: #f5f2ff;
+  --page-wash-strong-soft: #ecf3ff;
+  --page-wash-faint: #f7f5ff;
+  --page-wash-strong-faint: #f0f6ff;
   --page-deep: #4b328e;
 }
 
@@ -479,6 +487,10 @@ main > section:nth-of-type(4)::before {
   --page-accent: #b9a7ff;
   --page-wash: #f0ecff;
   --page-wash-strong: #e2edff;
+  --page-wash-soft: #f5f2ff;
+  --page-wash-strong-soft: #ecf3ff;
+  --page-wash-faint: #f7f5ff;
+  --page-wash-strong-faint: #f0f6ff;
   --page-deep: #4b328e;
 }
 
@@ -486,21 +498,25 @@ main > section:nth-of-type(4)::before {
   --page-accent: #b9a7ff;
   --page-wash: #f2ecff;
   --page-wash-strong: #e9f3ff;
+  --page-wash-soft: #f6f2ff;
+  --page-wash-strong-soft: #f0f7ff;
+  --page-wash-faint: #f8f5ff;
+  --page-wash-strong-faint: #f4f9ff;
   --page-deep: #4b328e;
 }
 
 .environment-page main > section:nth-of-type(2) { background: var(--page-wash); }
 .environment-page main > section:nth-of-type(3) { background: var(--page-wash-strong); }
-.environment-page main > section:nth-of-type(4) { background: color-mix(in srgb, var(--page-wash) 68%, white); }
-.environment-page main > section:nth-of-type(5) { background: color-mix(in srgb, var(--page-wash-strong) 66%, white); }
-.environment-page main > section:nth-of-type(6) { background: color-mix(in srgb, var(--page-wash) 54%, white); }
+.environment-page main > section:nth-of-type(4) { background: var(--page-wash-soft); }
+.environment-page main > section:nth-of-type(5) { background: var(--page-wash-strong-soft); }
+.environment-page main > section:nth-of-type(6) { background: var(--page-wash-faint); }
 
 .environment-page main > section:not(.page-title)::before {
   width: 24rem;
   height: 24rem;
   right: -12rem;
   top: -12rem;
-  background: color-mix(in srgb, var(--page-accent) 20%, transparent);
+  background: rgba(185, 167, 255, 0.2);
 }
 
 .environment-page main > section:not(.page-title)::after {
@@ -510,7 +526,7 @@ main > section:nth-of-type(4)::before {
   bottom: 0;
   width: min(34vw, 25rem);
   height: 0.35rem;
-  background: linear-gradient(90deg, var(--page-accent), transparent);
+  background: linear-gradient(90deg, var(--page-accent) 0%, transparent 100%);
   pointer-events: none;
 }
 
@@ -582,14 +598,14 @@ main > section:nth-of-type(4)::before {
 }
 .environment-page #design .gallery { margin-top: 0; }
 .environment-page .todo {
-  border-color: color-mix(in srgb, var(--page-accent) 70%, var(--accent));
+  border-color: #a18cf4;
   background: rgba(255, 255, 255, 0.52);
 }
 
 .environment-page #results .tally {
   margin-top: 0;
   padding: 1rem;
-  border: 1px solid color-mix(in srgb, var(--page-accent) 55%, var(--line));
+  border: 1px solid #ccc1f8;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.54);
 }
@@ -635,7 +651,6 @@ main > section:nth-of-type(4)::before {
 .environment-page .gallery img {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
   border: 1px solid rgba(106, 76, 219, 0.4);
   border-radius: 0.8rem;
@@ -650,7 +665,6 @@ main > section:nth-of-type(4)::before {
 }
 
 .environment-page .gallery-featured img {
-  aspect-ratio: 16 / 10;
   border-color: rgba(157, 234, 255, 0.9);
   box-shadow: 0 1rem 2rem rgba(53, 35, 126, 0.17);
 }
@@ -976,4 +990,145 @@ td .todo { display: inline-block; padding: 0.1rem 0.5rem; font-size: 0.85rem; }
 @media print {
   .site-nav { display: none; }
   a { color: inherit; text-decoration: none; }
+}
+
+
+/* ---- additions for the Method page and the filled-in environment pages ----
+   Appended after the environment-page rules on purpose so they take
+   precedence where the selectors overlap.                               */
+
+table.wide { max-width: var(--wide); }
+table.wide td:nth-child(4) { white-space: nowrap; }
+
+figure.narrow { max-width: 32rem; }
+figure.narrow img {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+/* Two framework diagrams side by side on wide screens */
+.framework-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  margin: 1.5rem 0 2.5rem;
+}
+.framework-pair figure { max-width: none; }
+
+/* Result charts: keep the gallery hover-to-enlarge behaviour but never crop
+   a chart, and let the grid flow to as many rows as needed. */
+.environment-page .gallery.charts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  margin: 2rem 0;
+}
+.environment-page .gallery.charts img {
+  object-fit: contain;
+  background: #ffffff;
+}
+.environment-page .gallery.charts figure:hover,
+.environment-page .gallery.charts figure:focus-within {
+  transform: translateY(-0.45rem) scale(1.45);
+}
+
+/* The filled-in environment page has seven sections; give the last two a wash. */
+.environment-page main > section:nth-of-type(7) { background: var(--page-wash-strong-faint); }
+
+/* Sections added to environment pages that should read full width, not in the
+   two-column case-study grid. */
+.environment-page #framework .wrap,
+.environment-page #method .wrap { display: block; }
+.environment-page #framework h2,
+.environment-page #method h2 { max-width: 14ch; margin-bottom: 1.5rem; }
+.environment-page #framework h3 { margin: 2rem 0 0.75rem; }
+
+/* Method page: a fifth and sixth wash so the long page keeps its rhythm. */
+.support-page--method main > section:nth-of-type(5) { background: #e8f6fb; }
+.support-page--method main > section:nth-of-type(6) { background: #f4f1ff; }
+.support-page--method main > section:nth-of-type(7) { background: #e8f6fb; }
+.support-page--method .page-title h1 { max-width: 14ch; }
+
+@media (max-width: 42rem) {
+  .environment-page .gallery.charts { grid-template-columns: 1fr; }
+  .environment-page .gallery.charts figure:hover,
+  .environment-page .gallery.charts figure:focus-within { transform: none; }
+}
+
+
+/* ---- white text panels ---------------------------------------------
+   The team's preference: body text on the environment and method pages
+   sits in solid white blocks on the coloured section washes. Each
+   section's content after its heading is wrapped in .panel.            */
+
+.panel {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  box-shadow: 0 1px 2px rgba(27, 21, 64, 0.06);
+}
+
+.panel > :first-child { margin-top: 0; }
+.panel > :last-child { margin-bottom: 0; }
+.panel p:last-child, .panel ul:last-child, .panel .table-scroll:last-child { margin-bottom: 0; }
+
+/* Placeholders inside a panel lose the dashed purple box and read as
+   muted text, so a half-finished page still looks like the finished one. */
+.panel .todo {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--muted);
+  font-style: italic;
+}
+.panel td .todo { padding: 0; font-size: inherit; }
+
+/* The sticky heading keeps its left column; the panel takes the right. */
+.environment-page #results h2 { grid-row: 1; }
+
+
+/* ---- layout overrides for the Water Balloon page -------------------- */
+
+/* A section that should run full width instead of the two-column
+   case-study grid. Add class="full" to the section. */
+.environment-page section.full .wrap,
+.environment-page #overview.full .wrap,
+.environment-page #results.full .wrap,
+.environment-page #documents.full .wrap { display: block; }
+.environment-page section.full h2,
+.environment-page #overview.full h2,
+.environment-page #results.full h2,
+.environment-page #documents.full h2 {
+  position: static;
+  max-width: 14ch;
+  margin-bottom: 1.5rem;
+}
+.environment-page section.full table { max-width: none; }
+.environment-page section.full .gallery.charts {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Text beside a tall diagram inside a panel */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(14rem, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+.split-text p:last-child { margin-bottom: 0; }
+.split-figure {
+  margin: 0;
+  max-width: 22rem;
+  justify-self: end;
+}
+.split-figure img {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #ffffff;
+}
+
+@media (max-width: 48rem) {
+  .split { grid-template-columns: 1fr; }
+  .split-figure { justify-self: start; }
+  .environment-page section.full .gallery.charts { grid-template-columns: 1fr; }
 }
