@@ -30,7 +30,7 @@ code/                       Zipped source code
 
 ## Editing your environment page
 
-Open your page in any text editor. Every block that still needs content is marked with `class="todo"` and shows up on the live site as a dashed purple box. Replace the placeholder text and remove `class="todo"` from that element. For screenshots, drop the image into `img/`, point the `<img src="...">` at it, and write a proper `alt` description.
+Open your page in any text editor. Every block that still needs content is marked with `class="todo"` and shows up on the live site as muted italic text. Replace the placeholder text and remove `class="todo"` from that element. For screenshots, drop the image into `img/`, point the `<img src="...">` at it, and write a proper `alt` description.
 
 To add a document: put the PDF in `docs/`, then change the table row from
 
@@ -45,6 +45,40 @@ to
 ```
 
 Also add the same link on `resources.html` under your name.
+
+## Adding your source code
+
+Make a zip of your C# scripts, the `ProjectSettings` folder and `Packages/manifest.json`, with a short `README.txt` at the top level (what is included, which Unity version and packages, and that assets are excluded for size). Leave out `Library`, `Temp`, `Logs`, `obj`, `Builds` and everything else under `Assets`. On a Mac, zip from Terminal so no `__MACOSX` folder is added. `code/WaterBalloonFight_source.zip` is an example to copy.
+
+1. Put the zip in the `code/` folder of the repo.
+
+2. On your environment page, under the "Source code" heading, replace
+
+   ```html
+   <p class="todo">Link to the compressed source archive for this environment: file to be added.</p>
+   ```
+
+   with (change the filename, size and script count to yours)
+
+   ```html
+   <p><a href="code/BunnyRally_source.zip">BunnyRally_source.zip</a> (80 KB): 22 C# scripts, the Unity project settings, the package manifest and a README.</p>
+   ```
+
+   Leave the note underneath it in place.
+
+3. On `resources.html`, in the table under your name, replace
+
+   ```html
+   <tr><td>Source code <span class="todo">file to be added</span></td><td>ZIP</td></tr>
+   ```
+
+   with
+
+   ```html
+   <tr><td><a href="code/BunnyRally_source.zip">Source code</a></td><td>ZIP</td></tr>
+   ```
+
+Then push, hard-refresh the live site, click both links to confirm the zip downloads, and run your page through https://validator.w3.org/.
 
 ## Publishing on GitHub Pages
 
