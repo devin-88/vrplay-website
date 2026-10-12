@@ -83,11 +83,11 @@
       </div>
     </div>
   </section>
-  <section id="results">
+  <section id="results" class="full">
     <div class="wrap">
       <h2>What this experiment <em>showed</em></h2>
       <div class="panel results-panel">
-      <p class="verdict">Partial support for PLAY-consistent engagement</p>
+      <p class="verdict">2 of 7 parts met</p>
       <ul class="tally" aria-label="Summary of PLAY-related dimensions">
         <li class="part">Valence <span class="vh">(partly met)</span></li>
         <li class="none">Arousal <span class="vh">(not met)</span></li>
@@ -117,45 +117,30 @@
           <small>Reciprocal engagement was evident, but timing was unverified</small>
         </article>
       </div>
-      <div id="hypothesis-explorer" class="hypothesis-explorer">
-        <div class="hypothesis-controls" role="group" aria-label="Filter hypothesis results">
-          <button type="button" class="hypothesis-filter is-active" data-filter="all" aria-pressed="true">All results</button>
-          <button type="button" class="hypothesis-filter" data-filter="supported" aria-pressed="false">Supported</button>
-          <button type="button" class="hypothesis-filter" data-filter="partial" aria-pressed="false">Partly supported</button>
-          <button type="button" class="hypothesis-filter" data-filter="unsupported" aria-pressed="false">Not supported</button>
-          <button type="button" class="hypothesis-filter" data-filter="inconclusive" aria-pressed="false">Inconclusive</button>
-        </div>
-
-        <div class="hypothesis-list">
-          <details class="hypothesis-card" data-status="partial">
-            <summary><span><b>H-SAM-1</b> High valence, arousal, and dominance at P3</span><span class="result-status result-status--partial">Partly supported</span></summary>
-            <p>Valence was high after the affective VE (M = 7.23, above the 6.33 threshold), but arousal (M = 5.85) and dominance (M = 6.19) did not exceed the threshold.</p>
-          </details>
-          <details class="hypothesis-card" data-status="unsupported">
-            <summary><span><b>H-SAM-2</b> SAM dimensions increase from P2 to P3</span><span class="result-status result-status--unsupported">Not supported</span></summary>
-            <p>Valence changed by −0.04, arousal did not change, and dominance increased by 0.27. None of these changes was statistically significant after correction.</p>
-          </details>
-          <details class="hypothesis-card" data-status="partial">
-            <summary><span><b>H-PANASX-1 and H-PANASX-2</b> Joviality increases most and is highest at P3</span><span class="result-status result-status--partial">Partly supported</span></summary>
-            <p>Joviality was the highest post-affective PANAS-X subscale, but it did not increase from P2 to P3 and was not significantly higher than every other subscale.</p>
-          </details>
-          <details class="hypothesis-card" data-status="unsupported">
-            <summary><span><b>H-ANSS-1 and H-ANSS-2</b> PLAY increases most and is highest at P3</span><span class="result-status result-status--unsupported">Not supported</span></summary>
-            <p>PLAY increased slightly, by approximately 0.03 points on the subscale-mean scale, but RAGE and SEEKING showed larger increases. SEEKING also had a higher post-affective score than PLAY.</p>
-          </details>
-          <details class="hypothesis-card" data-status="supported">
-            <summary><span><b>H-CP-1</b> Co-presence is above the scale midpoint</span><span class="result-status result-status--supported">Supported</span></summary>
-            <p>Co-presence was above the midpoint of 3 (M = 3.78), indicating that participants experienced the bunny as a present interaction partner.</p>
-          </details>
-          <details class="hypothesis-card" data-status="unsupported">
-            <summary><span><b>H-SP-1</b> Social presence is above the scale midpoint</span><span class="result-status result-status--unsupported">Not supported</span></summary>
-            <p>Social presence was close to the midpoint of 4 (M = 4.01), but the result did not provide convincing evidence that it exceeded the midpoint.</p>
-          </details>
-          <details class="hypothesis-card" data-status="inconclusive">
-            <summary><span><b>H-TEL-1</b> Behavioural telemetry indicates reciprocal engagement</span><span class="result-status result-status--inconclusive">Inconclusive</span></summary>
-            <p>Participants produced repeated throws, catches, hits, and swings while the bunny responded through catching, retrieving, and celebrating. This pattern is consistent with reciprocal engagement, but the telemetry contained aggregate counts rather than time-stamped event sequences, so turn-by-turn reciprocity cannot be established.</p>
-          </details>
-        </div>
+      <div class="table-scroll results-table">
+        <table>
+          <caption class="vh">Bunny Rally hypothesis results</caption>
+          <thead>
+            <tr><th scope="col">Hypothesis</th><th scope="col">Descriptive evidence</th><th scope="col">Result</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>H-SAM-1v: Valence at P3 is high</td><td>M = 7.23; threshold = 6.33</td><td>Supported</td></tr>
+            <tr><td>H-SAM-1a: Arousal at P3 is high</td><td>M = 5.85; threshold = 6.33</td><td>Not supported</td></tr>
+            <tr><td>H-SAM-1d: Dominance at P3 is high</td><td>M = 6.19; threshold = 6.33</td><td>Not supported</td></tr>
+            <tr><td>H-SAM-2v: Valence rose from P2 to P3</td><td>7.27 → 7.23 (−0.04)</td><td>Not supported</td></tr>
+            <tr><td>H-SAM-2a: Arousal rose from P2 to P3</td><td>No descriptive increase</td><td>Not supported</td></tr>
+            <tr><td>H-SAM-2d: Dominance rose from P2 to P3</td><td>+0.27</td><td>Supported</td></tr>
+            <tr><td>H-PANASX-1: Joviality rose more than every other PANAS-X subscale</td><td>Joviality changed by −0.01; it did not rise most</td><td>Not supported</td></tr>
+            <tr><td>H-PANASX-2: Joviality is the highest PANAS-X subscale at P3</td><td>Highest observed P3 subscale</td><td>Supported</td></tr>
+            <tr><td>H-ANSS-1: PLAY rose more than every other ANSS subscale</td><td>PLAY +0.03; RAGE +0.07</td><td>Not supported</td></tr>
+            <tr><td>H-ANSS-2: PLAY is the highest ANSS subscale at P3</td><td>SEEKING was higher than PLAY</td><td>Not supported</td></tr>
+            <tr><td>H-CP-1: Co-presence above the scale midpoint</td><td>M = 3.78; midpoint = 3</td><td>Supported</td></tr>
+            <tr><td>H-SP-1: Social presence above the scale midpoint</td><td>M = 4.01; midpoint = 4</td><td>Supported</td></tr>
+            <tr><td>H-TEL-1: Throws were timed in response to the NPC</td><td>Aggregate counts suggest interaction; timing was not recorded</td><td>Inconclusive</td></tr>
+            <tr><td>H-iPQ-1: Presence above the scale midpoint</td><td>M = 0.74; midpoint = 0</td><td>Supported</td></tr>
+            <tr><td>H-iPQ-2: Presence rose from P2 to P3</td><td>0.35 → 0.74 (+0.40)</td><td>Supported</td></tr>
+          </tbody>
+        </table>
       </div>
 
       <h3>Explore the evidence</h3>
@@ -221,28 +206,5 @@
     <p><a href="contact.html">Contact</a> &middot; <a href="resources.html">Resources</a></p>
   </div>
 </footer>
-<script>
-  (() => {
-    const explorer = document.querySelector('#hypothesis-explorer');
-    if (!explorer) return;
-
-    const filters = [...explorer.querySelectorAll('.hypothesis-filter')];
-    const cards = [...explorer.querySelectorAll('.hypothesis-card')];
-
-    filters.forEach((filter) => {
-      filter.addEventListener('click', () => {
-        const selected = filter.dataset.filter;
-        filters.forEach((button) => {
-          const active = button === filter;
-          button.classList.toggle('is-active', active);
-          button.setAttribute('aria-pressed', String(active));
-        });
-        cards.forEach((card) => {
-          card.hidden = selected !== 'all' && card.dataset.status !== selected;
-        });
-      });
-    });
-  })();
-</script>
 </body>
 </html>

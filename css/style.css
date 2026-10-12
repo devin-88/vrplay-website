@@ -654,87 +654,6 @@ main > section:nth-of-type(4)::before {
   font-size: 1.25rem;
 }
 
-.hypothesis-explorer {
-  margin: 1.5rem 0 2rem;
-}
-
-.hypothesis-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.hypothesis-filter {
-  padding: 0.45rem 0.75rem;
-  border: 1px solid #cfc3f5;
-  border-radius: 999px;
-  color: var(--page-deep);
-  background: #ffffff;
-  font: inherit;
-  font-size: 0.88rem;
-  cursor: pointer;
-}
-
-.hypothesis-filter:hover,
-.hypothesis-filter.is-active {
-  color: #ffffff;
-  background: var(--page-deep);
-  border-color: var(--page-deep);
-}
-
-.hypothesis-list {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.hypothesis-card {
-  border: 1px solid var(--line);
-  border-radius: 0.65rem;
-  background: #ffffff;
-}
-
-.hypothesis-card[hidden] { display: none; }
-
-.hypothesis-card summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.8rem 1rem;
-  color: var(--ink);
-  cursor: pointer;
-  list-style-position: inside;
-}
-
-.hypothesis-card summary b {
-  color: var(--page-deep);
-  margin-right: 0.35rem;
-}
-
-.hypothesis-card summary > span:first-child { flex: 1; }
-
-.hypothesis-card > p {
-  margin: 0;
-  padding: 0 1rem 1rem 2.6rem;
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
-.result-status {
-  flex: none;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.result-status--supported { color: #17633f; background: #e5f5ec; }
-.result-status--partial { color: #735100; background: #fff2c9; }
-.result-status--unsupported { color: #8d3040; background: #fde9ed; }
-.result-status--inconclusive { color: #4e4a70; background: #eceafa; }
-
 .results-note {
   font-size: 0.88rem;
 }
@@ -838,7 +757,6 @@ main > section:nth-of-type(4)::before {
   .environment-page .gallery { grid-template-columns: 1fr; }
   .environment-page .gallery-featured { order: -1; }
   .results-highlights { grid-template-columns: 1fr; }
-  .hypothesis-card summary { align-items: flex-start; flex-direction: column; gap: 0.5rem; }
   .environment-page .gallery figure:hover,
   .environment-page .gallery figure:focus-within {
     transform: translateY(-0.35rem) scale(1.35);
@@ -1034,6 +952,28 @@ thead th { border-bottom: 2px solid var(--ink); }
 td:last-child, th:last-child { padding-right: 0; }
 
 .table-scroll { overflow-x: auto; }
+
+.results-table table {
+  max-width: none;
+  margin-bottom: 0;
+}
+
+.results-table th:nth-child(2),
+.results-table td:nth-child(2) {
+  width: 6rem;
+  white-space: nowrap;
+}
+
+.results-table th:last-child,
+.results-table td:last-child {
+  width: 10rem;
+  white-space: nowrap;
+}
+
+.results-table td:last-child {
+  color: var(--page-deep);
+  font-weight: 600;
+}
 
 /* ---- figures and placeholders ------------------------------------- */
 
