@@ -54,7 +54,8 @@
     <div class="wrap">
       <h2>What happens <em>in this world</em></h2>
       <div class="panel">
-      <p>A sunny forest, an approachable bunny NPC, guided movement cues, responsive throw-and-catch interactions, and adaptive difficulty designed to support playful reciprocity and agency</p>
+      <p>The main NPC is a friendly animated bunny that acts as both the interaction partner and the focus of the experience. It navigates between different spots using a NavMesh, throws acorns towards the player, reacts when an acorn is caught, and occasionally waves, approaches the player, or plays friendly sounds when the player is inactive. The scene is designed as a stylised outdoor environment with terrain, trees, bushes, fences and mountains. The player uses VR controls to move around, pick up the mallet, and physically swing it to hit the incoming acorns back towards the bunny. Successful catches generate a "Yay" response, while missed acorns can land on the ground or be collected by the bunny.</p>
+      <p>A key design decision was to make the interaction physical and easy to understand: the glowing mallet and hand hint guide the player, while haptic feedback, sound effects, animations, and visual celebrations reinforce successful actions. The bunny’s movement and behaviour make the scene feel more alive, while its occasional friendly interactions help create a welcoming atmosphere rather than making it feel like a purely competitive challenge. The difficulty also adapts to the player’s performance by tracking accuracy, catch streaks, misses, throw speed, throw frequency, spread, and the number of acorns thrown. If the player is struggling, the bunny moves less often and the acorns become easier to hit; if the player performs well, the level gradually increases the speed, spread, movement, or number of acorns. This was designed to keep the experience challenging while still allowing different players to enjoy and learn the rules of the interaction at their own pace.</p>
       <h3>Gallery</h3>
       <div class="gallery">
         <figure class="gallery-supporting">
@@ -73,23 +74,118 @@
       </div>
     </div>
   </section>
+  <section id="method">
+    <div class="wrap">
+      <h2>How it <em>was tested</em></h2>
+      <div class="panel">
+      <p>The study used a within-subjects design with 26 participants, who completed a tutorial VE followed by the Bunny Rally environment. SAM, PANAS-X, and ANSS were collected across three timepoints, while IPQ, co-presence, and social presence were measured after the environments. Behavioural telemetry recorded throws, catches, hits, approaches, and bat swings.</p>
 
+      </div>
+    </div>
+  </section>
   <section id="results">
     <div class="wrap">
       <h2>What this experiment <em>showed</em></h2>
-      <div class="panel">
-      <p class="verdict">2 of 7 parts met</p>
-    <ul class="tally">
-      <li class="part">Valence <span class="vh">(partly met)</span></li>
-      <li class="none">Arousal <span class="vh">(not met)</span></li>
-      <li class="part">Dominance <span class="vh">(partly met)</span></li>
-      <li class="met">Reciprocity <span class="vh">(met)</span></li>
-      <li class="met">Sociality <span class="vh">(met)</span></li>
-      <li class="part">Joy <span class="vh">(partly met)</span></li>
-      <li class="none">PLAY <span class="vh">(not met)</span></li>
-    </ul>
+      <div class="panel results-panel">
+      <p class="verdict">Partial support for PLAY-consistent engagement</p>
+      <ul class="tally" aria-label="Summary of PLAY-related dimensions">
+        <li class="part">Valence <span class="vh">(partly met)</span></li>
+        <li class="none">Arousal <span class="vh">(not met)</span></li>
+        <li class="part">Dominance <span class="vh">(partly met)</span></li>
+        <li class="met">Reciprocity <span class="vh">(met)</span></li>
+        <li class="met">Sociality <span class="vh">(met)</span></li>
+        <li class="part">Joy <span class="vh">(partly met)</span></li>
+        <li class="none">PLAY <span class="vh">(not met)</span></li>
+      </ul>
       <p class="tally-note">Filled: met. Half: partly met. Empty: not met.</p>
-      <p class="todo">The results in prose: which parts of PLAY were met and which were not, the key statistics behind each, and what the pattern means for this environment. Include a results figure if there is a good one.</p>
+      <p>The Bunny Rally environment produced high positive valence and co-presence, but the evidence did not show a clear increase in arousal, dominance, PLAY-specific responses, or social presence. Repeated throws, swings, hits, catches, and bunny reactions provide preliminary evidence of reciprocal engagement, although the available behavioural data could not verify turn-by-turn reciprocity.</p>
+
+      <div class="results-highlights" aria-label="Key findings">
+        <article>
+          <span>Strongest affective result</span>
+          <strong>Valence</strong>
+          <small>M = 7.23 on the 1–9 scale</small>
+        </article>
+        <article>
+          <span>Strongest social result</span>
+          <strong>Co-presence</strong>
+          <small>M = 3.78, above the midpoint of 3</small>
+        </article>
+        <article>
+          <span>Important limitation</span>
+          <strong>Reciprocity</strong>
+          <small>Reciprocal engagement was evident, but timing was unverified</small>
+        </article>
+      </div>
+      <div id="hypothesis-explorer" class="hypothesis-explorer">
+        <div class="hypothesis-controls" role="group" aria-label="Filter hypothesis results">
+          <button type="button" class="hypothesis-filter is-active" data-filter="all" aria-pressed="true">All results</button>
+          <button type="button" class="hypothesis-filter" data-filter="supported" aria-pressed="false">Supported</button>
+          <button type="button" class="hypothesis-filter" data-filter="partial" aria-pressed="false">Partly supported</button>
+          <button type="button" class="hypothesis-filter" data-filter="unsupported" aria-pressed="false">Not supported</button>
+          <button type="button" class="hypothesis-filter" data-filter="inconclusive" aria-pressed="false">Inconclusive</button>
+        </div>
+
+        <div class="hypothesis-list">
+          <details class="hypothesis-card" data-status="partial">
+            <summary><span><b>H-SAM-1</b> High valence, arousal, and dominance at P3</span><span class="result-status result-status--partial">Partly supported</span></summary>
+            <p>Valence was high after the affective VE (M = 7.23, above the 6.33 threshold), but arousal (M = 5.85) and dominance (M = 6.19) did not exceed the threshold.</p>
+          </details>
+          <details class="hypothesis-card" data-status="unsupported">
+            <summary><span><b>H-SAM-2</b> SAM dimensions increase from P2 to P3</span><span class="result-status result-status--unsupported">Not supported</span></summary>
+            <p>Valence changed by −0.04, arousal did not change, and dominance increased by 0.27. None of these changes was statistically significant after correction.</p>
+          </details>
+          <details class="hypothesis-card" data-status="partial">
+            <summary><span><b>H-PANASX-1 and H-PANASX-2</b> Joviality increases most and is highest at P3</span><span class="result-status result-status--partial">Partly supported</span></summary>
+            <p>Joviality was the highest post-affective PANAS-X subscale, but it did not increase from P2 to P3 and was not significantly higher than every other subscale.</p>
+          </details>
+          <details class="hypothesis-card" data-status="unsupported">
+            <summary><span><b>H-ANSS-1 and H-ANSS-2</b> PLAY increases most and is highest at P3</span><span class="result-status result-status--unsupported">Not supported</span></summary>
+            <p>PLAY increased slightly, by approximately 0.03 points on the subscale-mean scale, but RAGE and SEEKING showed larger increases. SEEKING also had a higher post-affective score than PLAY.</p>
+          </details>
+          <details class="hypothesis-card" data-status="supported">
+            <summary><span><b>H-CP-1</b> Co-presence is above the scale midpoint</span><span class="result-status result-status--supported">Supported</span></summary>
+            <p>Co-presence was above the midpoint of 3 (M = 3.78), indicating that participants experienced the bunny as a present interaction partner.</p>
+          </details>
+          <details class="hypothesis-card" data-status="unsupported">
+            <summary><span><b>H-SP-1</b> Social presence is above the scale midpoint</span><span class="result-status result-status--unsupported">Not supported</span></summary>
+            <p>Social presence was close to the midpoint of 4 (M = 4.01), but the result did not provide convincing evidence that it exceeded the midpoint.</p>
+          </details>
+          <details class="hypothesis-card" data-status="inconclusive">
+            <summary><span><b>H-TEL-1</b> Behavioural telemetry indicates reciprocal engagement</span><span class="result-status result-status--inconclusive">Inconclusive</span></summary>
+            <p>Participants produced repeated throws, catches, hits, and swings while the bunny responded through catching, retrieving, and celebrating. This pattern is consistent with reciprocal engagement, but the telemetry contained aggregate counts rather than time-stamped event sequences, so turn-by-turn reciprocity cannot be established.</p>
+          </details>
+        </div>
+      </div>
+
+      <h3>Explore the evidence</h3>
+      <div class="gallery charts results-charts">
+        <figure>
+          <img src="img/bunny-sam-timepoints.png" alt="Three-panel line graph showing SAM valence, arousal and dominance across pre-tutorial, post-tutorial and post-affective timepoints, with a high threshold at 6.33" width="4200" height="1710" loading="lazy">
+          <figcaption><span class="gallery-number">01</span><span>SAM scores across the three timepoints. The dashed line marks the high threshold of 6.33.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="img/bunny-anss-subscales.png" alt="Horizontal dot plot showing post-affective ANSS subscale scores, with PLAY highlighted and SEEKING slightly higher" width="2850" height="1920" loading="lazy">
+          <figcaption><span class="gallery-number">02</span><span>Post-affective ANSS subscale scores. PLAY is highlighted for comparison with SEEKING.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="img/panas-post-affective-subscales.png" alt="Horizontal dot plot showing post-affective PANAS-X subscale scores, with Joviality highlighted" width="2850" height="2040" loading="lazy">
+          <figcaption><span class="gallery-number">03</span><span>PANAS-X subscale scores after the affective VE. Joviality was highest descriptively.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="img/panas-change-p2-p3.png" alt="Horizontal dot plot showing signed changes in PANAS-X subscale scores from post-tutorial to post-affective VE, with a zero line" width="2850" height="2040" loading="lazy">
+          <figcaption><span class="gallery-number">04</span><span>PANAS-X change from post-tutorial to post-affective VE. Joviality did not increase.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="img/ipq-by-timepoint.png" alt="Line graph showing mean IPQ scores increasing from post-tutorial to post-affective VE, with a neutral threshold at zero" width="2550" height="1740" loading="lazy">
+          <figcaption><span class="gallery-number">05</span><span>IPQ scores increased descriptively after the affective VE, although the corrected hypothesis test was not significant.</span></figcaption>
+        </figure>
+        <figure>
+          <img src="img/presence-measures.png" alt="Horizontal dot plot comparing co-presence and social presence means with their scale midpoint markers" width="2850" height="1740" loading="lazy">
+          <figcaption><span class="gallery-number">06</span><span>Co-presence exceeded its midpoint, while social presence remained close to its midpoint.</span></figcaption>
+        </figure>
+      </div>
+      <p class="muted results-note">The plots show descriptive patterns. The hypothesis decisions are based on the paired and threshold two-sided tests reported in the paper, with multiple-comparison correction applied within measure families. Reciprocity is therefore described as preliminary reciprocal engagement rather than confirmed turn-by-turn contingency.</p>
       </div>
     </div>
   </section>
@@ -106,13 +202,14 @@
         </thead>
         <tbody>
           <tr><td> <a href="docs/Karla_paper.pdf">Final paper</a></td><td>PDF</td></tr>
-          <tr><td>Literature review <span class="todo">file to be added</span></td><td>PDF</td></tr>
+          <tr><td><a href="docs/Karla_lit_review.pdf">Literature review</a></td><td>PDF</td></tr>
         </tbody>
       </table>
       </div>
       <h3>Source code</h3>
-      <p class="todo">Link to the compressed source archive for this environment: file to be added.</p>
+      <p><a href="code/Hide-and-Seek-main 3.zip">Click here to download zip</a></p>
       <p class="code-note">Each archive holds the C# scripts, the Unity project settings and the package manifest, which is enough to read the code and see which Unity version and packages it was built with. Models, textures, audio and other third-party assets are left out to keep the archive small.</p>
+
       </div>
     </div>
   </section>
@@ -124,5 +221,28 @@
     <p><a href="contact.html">Contact</a> &middot; <a href="resources.html">Resources</a></p>
   </div>
 </footer>
+<script>
+  (() => {
+    const explorer = document.querySelector('#hypothesis-explorer');
+    if (!explorer) return;
+
+    const filters = [...explorer.querySelectorAll('.hypothesis-filter')];
+    const cards = [...explorer.querySelectorAll('.hypothesis-card')];
+
+    filters.forEach((filter) => {
+      filter.addEventListener('click', () => {
+        const selected = filter.dataset.filter;
+        filters.forEach((button) => {
+          const active = button === filter;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        cards.forEach((card) => {
+          card.hidden = selected !== 'all' && card.dataset.status !== selected;
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
